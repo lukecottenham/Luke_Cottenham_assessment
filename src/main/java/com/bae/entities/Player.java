@@ -5,7 +5,7 @@ import com.bae.game.MovementMessage;
 public class Player {
 	private int xLocation = 0;
 	private int yLocation = 0;
-	MovementMessage playerLeavesSwamp = new MovementMessage();
+	MovementMessage playerMovement = new MovementMessage();
 	int movesTaken = 0;
 
 	public String movePlayer(Direction dir, int distance, int swampSize) {
@@ -17,9 +17,9 @@ public class Player {
 			this.yLocation += distance;
 			if (this.yLocation > swampSize) {
 				this.yLocation = 0;
-				movementInfo = playerLeavesSwamp.playerOutOfBounds();
+				movementInfo = playerMovement.playerOutOfBounds();
 			} else {
-				movementInfo = playerLeavesSwamp.movementSuccess(direction, distance);
+				movementInfo = playerMovement.movementSuccess(direction, distance);
 			}
 			break;
 
@@ -28,9 +28,9 @@ public class Player {
 			this.xLocation += distance;
 			if (this.xLocation > swampSize) {
 				this.xLocation = 0;
-				movementInfo = playerLeavesSwamp.playerOutOfBounds();
+				movementInfo = playerMovement.playerOutOfBounds();
 			} else {
-				movementInfo = playerLeavesSwamp.movementSuccess(direction, distance);
+				movementInfo = playerMovement.movementSuccess(direction, distance);
 			}
 			break;
 
@@ -39,9 +39,9 @@ public class Player {
 			this.yLocation -= distance;
 			if (this.yLocation < -swampSize) {
 				this.yLocation = 0;
-				movementInfo = playerLeavesSwamp.playerOutOfBounds();
+				movementInfo = playerMovement.playerOutOfBounds();
 			} else {
-				movementInfo = playerLeavesSwamp.movementSuccess(direction, distance);
+				movementInfo = playerMovement.movementSuccess(direction, distance);
 			}
 			break;
 
@@ -50,9 +50,9 @@ public class Player {
 			this.xLocation -= distance;
 			if (this.xLocation < -swampSize) {
 				this.xLocation = 0;
-				movementInfo = playerLeavesSwamp.playerOutOfBounds();
+				movementInfo = playerMovement.playerOutOfBounds();
 			} else {
-				movementInfo = playerLeavesSwamp.movementSuccess(direction, distance);
+				movementInfo = playerMovement.movementSuccess(direction, distance);
 			}
 			break;
 

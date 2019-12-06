@@ -51,7 +51,7 @@ public class Game {
 					continue;
 				}
 
-				this.player.movePlayer(move.getDirection(), move.getDistance(), swamp.getSwampSize());
+				System.out.println(this.player.movePlayer(move.getDirection(), move.getDistance(), swamp.getSwampSize()));
 				if (this.player.getXLocation() == this.exit.getXLocation()
 						&& this.player.getYLocation() == this.exit.getYLocation()) {
 					goalFound = true;
