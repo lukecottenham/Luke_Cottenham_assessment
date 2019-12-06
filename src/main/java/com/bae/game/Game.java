@@ -2,7 +2,6 @@ package com.bae.game;
 
 import java.util.Scanner;
 
-import com.bae.entities.Direction;
 import com.bae.entities.Goal;
 import com.bae.entities.Player;
 import com.bae.entities.Swamp;
@@ -15,13 +14,14 @@ public class Game {
 
 	public String newGame() {
 		Boolean playGame = true;
+		MoveTracker move = new MoveTracker();
 		Scanner scan = new Scanner(System.in);
-		ScannerInputChecker swampInput = new ScannerInputChecker();
+		ScannerInputChecker inputChecker = new ScannerInputChecker();
 		System.out.println("Welcome to Escape The Swamp!");
 		do {
 			System.out.println(
 					"Please choose a new integer distance to the swamp edge for the swamp to escape from between 100m and 10,000m...");
-			Boolean validSize = swampInput.sizeEntry(scan, this.swamp);
+			Boolean validSize = inputChecker.sizeEntry(scan, this.swamp);
 			if (validSize) {
 				exit.randomiseLocation(this.swamp.getSwampSize());
 			} else {
@@ -34,36 +34,15 @@ public class Game {
 					+ "\nWhen it clears you find yourself in a foggy swamp stretching out for at least "
 					+ this.swamp.getSwampSize() + "m in each direction. "
 					+ "\nYou look at the compass, all that it is showing is a glowing number that says:");
-			String directionInput;
 			String distanceInput;
 			int distanceInputInt;
-			Direction direction;
 			do {
 				System.out.println("\n"
 						+ this.swamp.distanceFromGoal(this.exit.getXLocation(), this.exit.getYLocation(),
 								this.player.getXLocation(), this.player.getYLocation())
 						+ "\nPlease enter a cardinal direction to move in...");
-				directionInput = scan.nextLine().toLowerCase();
-
-				switch (directionInput) {
-				case "north":
-					direction = Direction.NORTH;
-					break;
-
-				case "east":
-					direction = Direction.EAST;
-					break;
-
-				case "south":
-					direction = Direction.SOUTH;
-					break;
-
-				case "west":
-					direction = Direction.WEST;
-					break;
-
-				default:
-					System.out.println("\nMake sure you enter a vaild compass direction.");
+				
+				if (!inputChecker.directionEntry(scan, move)) {
 					continue;
 				}
 
@@ -78,7 +57,7 @@ public class Game {
 				}
 				distanceInputInt = Integer.parseInt(distanceInput);
 
-				this.player.movePlayer(direction, distanceInputInt, swamp.getSwampSize());
+				this.player.movePlayer(move.getDirection(), distanceInputInt, swamp.getSwampSize());
 				if (this.player.getXLocation() == this.exit.getXLocation()
 						&& this.player.getYLocation() == this.exit.getYLocation()) {
 					goalFound = true;
