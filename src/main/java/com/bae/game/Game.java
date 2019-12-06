@@ -42,8 +42,7 @@ public class Game {
 			do {
 					System.out.println(this.swamp.distanceFromGoal(this.exit.getXLocation(), this.exit.getYLocation(), this.player.getXLocation(), this.player.getYLocation())
 					+ "Please enter a cardinal direction to move in...");
-					
-					directionInput = scan.nextLine();
+					directionInput = scan.nextLine().toLowerCase();
 					
 					switch(directionInput) {
 					case "north":
@@ -66,8 +65,16 @@ public class Game {
 						System.out.println("Make sure you enter a vaild compass direction.");
 						continue;
 					}
+
 					System.out.println("Please enter an integer distance in m that will still leave you in the swamp to move in the direction you chose...");
 					distanceInput = scan.nextLine();
+					try {
+						distanceInputInt = Integer.parseInt(distanceInput);
+					}
+					catch(NumberFormatException nfe) {
+						System.out.println("Please make sure you only enter an integer.");
+						continue;
+					}
 					distanceInputInt = Integer.parseInt(distanceInput);
 
 					this.player.movePlayer(direction, distanceInputInt, swamp.getSwampSize());

@@ -2,6 +2,7 @@ package com.bae.game;
 
 import java.util.Scanner;
 
+import com.bae.entities.Direction;
 import com.bae.entities.Swamp;
 
 public class ScannerInputChecker {
