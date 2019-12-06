@@ -2,6 +2,7 @@ package com.bae.game;
 
 import java.util.Scanner;
 
+import com.bae.entities.Direction;
 import com.bae.entities.Goal;
 import com.bae.entities.Player;
 import com.bae.entities.Swamp;
@@ -35,14 +36,44 @@ public class Game {
 					+ "m in each direction. "
 					+ "\nYou look at the compass, all that it is showing is a glowing number that says: \n");
 			String directionInput;
+			String distanceInput;
+			int distanceInputInt;
+			Direction direction;
 			do {
-
 					System.out.println(this.swamp.distanceFromGoal(this.exit.getXLocation(), this.exit.getYLocation(), this.player.getXLocation(), this.player.getYLocation())
 					+ "Please enter a cardinal direction to move in...");
+					
 					directionInput = scan.nextLine();
 					
-					System.out.println("Please enter an integer distance in m that will leave you in the swamp to move in that direction...");
+					switch(directionInput) {
+					case "north":
+						direction = Direction.NORTH;
+						break;
 						
+					case "east":
+						direction = Direction.EAST;
+						break;
+						
+					case "south":
+						direction = Direction.SOUTH;
+						break;
+						
+					case "west":
+						direction = Direction.WEST;
+						break;
+						
+					default:
+						System.out.println("Make sure you enter a vaild compass direction.");
+						continue;
+					}
+					System.out.println("Please enter an integer distance in m that will still leave you in the swamp to move in the direction you chose...");
+					distanceInput = scan.nextLine();
+					distanceInputInt = Integer.parseInt(distanceInput);
+
+					this.player.movePlayer(direction, distanceInputInt, swamp.getSwampSize());
+					if (this.player.getXLocation() == this.exit.getXLocation() && this.player.getYLocation() == this.exit.getYLocation()) {
+						goalFound = true;
+					}
 				
 			}
 			while(!goalFound);
