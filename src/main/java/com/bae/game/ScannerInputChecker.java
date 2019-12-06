@@ -37,6 +37,10 @@ public class ScannerInputChecker {
 		}
 	}
 	
+	public Boolean distanceEntry(Scanner scan) {
+		return true;
+	}
+	
 	public Boolean sizeEntry(Scanner scan, Swamp swamp) {
 		int swampSizeInputInt;
 		Boolean proceed = true;

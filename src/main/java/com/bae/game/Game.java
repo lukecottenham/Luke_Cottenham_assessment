@@ -55,7 +55,6 @@ public class Game {
 					System.out.println("\nPlease make sure you only enter an integer.");
 					continue;
 				}
-				distanceInputInt = Integer.parseInt(distanceInput);
 
 				this.player.movePlayer(move.getDirection(), distanceInputInt, swamp.getSwampSize());
 				if (this.player.getXLocation() == this.exit.getXLocation()
