@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 public class Swamp {
 	private int swampSize = 1000;
-	DecimalFormat df = new DecimalFormat("#.##");
+	private DecimalFormat df = new DecimalFormat("#.##");
 
 	public int getSwampSize() {
 		return swampSize;

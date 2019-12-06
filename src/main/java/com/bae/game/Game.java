@@ -8,9 +8,9 @@ import com.bae.entities.Swamp;
 import com.bae.game.ScannerInputChecker;
 
 public class Game {
-	Swamp swamp = new Swamp();
-	Player player = new Player();
-	Goal exit = new Goal();
+	private Swamp swamp = new Swamp();
+	private Player player = new Player();
+	private Goal exit = new Goal();
 
 	public String newGame() {
 		Boolean playGame = true;

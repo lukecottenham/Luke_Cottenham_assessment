@@ -3,8 +3,8 @@ package com.bae.game;
 import com.bae.entities.Direction;
 
 public class MoveTracker {
-	Direction direction;
-	int Distance;
+	private Direction direction;
+	private int Distance;
 	
 	public Direction getDirection() {
 		return direction;

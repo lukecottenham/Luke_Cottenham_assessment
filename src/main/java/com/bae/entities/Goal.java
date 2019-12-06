@@ -5,7 +5,7 @@ import java.util.Random;
 public class Goal {
 	private int xLocation = 0;
 	private int yLocation = 0;
-	Random rand = new Random();
+	private Random rand = new Random();
 	
 	public Goal() {
 		super();

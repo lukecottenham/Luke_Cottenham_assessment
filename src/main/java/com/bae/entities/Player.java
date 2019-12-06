@@ -5,8 +5,8 @@ import com.bae.game.MovementMessage;
 public class Player {
 	private int xLocation = 0;
 	private int yLocation = 0;
-	MovementMessage playerMovement = new MovementMessage();
-	int movesTaken = 0;
+	private MovementMessage playerMovement = new MovementMessage();
+	private int movesTaken = 0;
 
 	public String movePlayer(Direction dir, int distance, int swampSize) {
 		String movementInfo = null;
