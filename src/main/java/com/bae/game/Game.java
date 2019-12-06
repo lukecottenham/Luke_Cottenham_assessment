@@ -86,6 +86,12 @@ public class Game {
 			while(!goalFound);
 		
 			System.out.println("You took " + this.player.getMovesTaken() + " moves to escape the swamp.");
+			System.out.println("Would you like to play again? Enter n for no and anything else for yes...");
+			String continuePlaying = scan.nextLine();
+			
+			if (continuePlaying.equalsIgnoreCase("y")) {
+				playGame = false;
+			}
 
 		
 		}
