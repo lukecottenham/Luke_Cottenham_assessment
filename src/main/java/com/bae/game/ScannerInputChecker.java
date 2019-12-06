@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import com.bae.entities.Swamp;
 
-public class SwampInput {
+public class ScannerInputChecker {
 	
 	public Boolean sizeEntry(Scanner scan, Swamp swamp) {
 		int swampSizeInputInt;

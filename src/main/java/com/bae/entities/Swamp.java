@@ -1,7 +1,10 @@
 package com.bae.entities;
 
+import java.text.DecimalFormat;
+
 public class Swamp {
 	private int swampSize = 1000;
+	DecimalFormat df = new DecimalFormat("#.##");
 
 	public int getSwampSize() {
 		return swampSize;
@@ -14,7 +17,8 @@ public class Swamp {
 	public String distanceFromGoal(int goalXLocation, int goalYLocation, int playerXLocation, int playerYLocation) {
 		int xDistance = Math.abs(playerXLocation - goalXLocation);
 		int yDistance = Math.abs(playerYLocation - goalYLocation);
-		return "You are " + Math.hypot(xDistance,yDistance) + "m from the exit.\n";
+		String distance = df.format(Math.hypot(xDistance,yDistance));
+		return "You are " + distance + "m from the exit.\n";
 	}
 
 }
