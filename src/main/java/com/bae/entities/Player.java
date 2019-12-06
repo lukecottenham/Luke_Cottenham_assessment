@@ -6,6 +6,7 @@ public class Player {
 	private int xLocation = 0;
 	private int yLocation = 0;
 	MovementMessage playerLeavesSwamp = new MovementMessage();
+	int movesTaken = 0;
 
 	public String movePlayer(Direction dir, int distance, int swampSize) {
 		String movementInfo = null;
@@ -56,6 +57,7 @@ public class Player {
 			break;
 
 		}
+		this.movesTaken++;
 		return movementInfo;
 	}
 
@@ -73,6 +75,10 @@ public class Player {
 
 	public void setYLocation(int yLocation) {
 		this.yLocation = yLocation;
+	}
+
+	public int getMovesTaken() {
+		return this.movesTaken;
 	}
 
 }

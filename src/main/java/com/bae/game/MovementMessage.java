@@ -1,7 +1,5 @@
 package com.bae.game;
 
-import com.bae.entities.Direction;
-
 public class MovementMessage {
 	
 	public String playerOutOfBounds() {
