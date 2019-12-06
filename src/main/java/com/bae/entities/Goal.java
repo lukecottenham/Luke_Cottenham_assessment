@@ -3,17 +3,21 @@ package com.bae.entities;
 import java.util.Random;
 
 public class Goal {
-	private int xLocation;
-	private int yLocation;
-	
+	private int xLocation = 0;
+	private int yLocation = 0;
+	Random rand = new Random();
 	
 	public Goal() {
 		super();
-		Random rand = new Random();
-		xLocation = rand.nextInt(2001) - 1000;
-		yLocation = rand.nextInt(2001) - 1000;
 
 		
+	}
+	public void randomiseLocation(int swampSize) {
+		Random rand = new Random();
+		int randomRange = (swampSize * 2) + 1;
+		this.xLocation = rand.nextInt(randomRange) - swampSize;
+		this.yLocation = rand.nextInt(randomRange) - swampSize;
+
 	}
 
 
