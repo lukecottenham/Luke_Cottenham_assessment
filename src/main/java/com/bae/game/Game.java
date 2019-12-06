@@ -63,7 +63,7 @@ public class Game {
 			System.out.println("\nWould you like to play again? Enter n for no and anything else for yes...");
 			String continuePlaying = scan.nextLine();
 
-			if (continuePlaying.equalsIgnoreCase("y")) {
+			if (continuePlaying.equalsIgnoreCase("n")) {
 				playGame = false;
 			}
 
