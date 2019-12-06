@@ -37,7 +37,15 @@ public class ScannerInputChecker {
 		}
 	}
 	
-	public Boolean distanceEntry(Scanner scan) {
+	public Boolean distanceEntry(Scanner scan, MoveTracker move) {
+		String distanceInput;
+		distanceInput = scan.nextLine();
+		try {
+			move.setDistance(Integer.parseInt(distanceInput));
+		} catch (NumberFormatException nfe) {
+			System.out.println("\nPlease make sure you only enter an integer.");
+			return false;
+		}
 		return true;
 	}
 	

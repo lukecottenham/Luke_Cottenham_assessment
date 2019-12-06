@@ -34,8 +34,6 @@ public class Game {
 					+ "\nWhen it clears you find yourself in a foggy swamp stretching out for at least "
 					+ this.swamp.getSwampSize() + "m in each direction. "
 					+ "\nYou look at the compass, all that it is showing is a glowing number that says:");
-			String distanceInput;
-			int distanceInputInt;
 			do {
 				System.out.println("\n"
 						+ this.swamp.distanceFromGoal(this.exit.getXLocation(), this.exit.getYLocation(),
@@ -48,15 +46,12 @@ public class Game {
 
 				System.out.println(
 						"\nPlease enter an integer distance in m that will still leave you in the swamp to move in the direction you chose...");
-				distanceInput = scan.nextLine();
-				try {
-					distanceInputInt = Integer.parseInt(distanceInput);
-				} catch (NumberFormatException nfe) {
-					System.out.println("\nPlease make sure you only enter an integer.");
+				
+				if (!inputChecker.distanceEntry(scan, move)) {
 					continue;
 				}
 
-				this.player.movePlayer(move.getDirection(), distanceInputInt, swamp.getSwampSize());
+				this.player.movePlayer(move.getDirection(), move.getDistance(), swamp.getSwampSize());
 				if (this.player.getXLocation() == this.exit.getXLocation()
 						&& this.player.getYLocation() == this.exit.getYLocation()) {
 					goalFound = true;
